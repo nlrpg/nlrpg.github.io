@@ -20,10 +20,6 @@ jobs:
         dotnet-version: '6.0.x'
         include-prerelease: true
     - run: dotnet publish -c Release -o release
-    
-    # changes the base-tag in index.html from '/' to 'nlrpg.github.io' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to nlrpg.github.io
-      run: sed -i 's/<base href="\/" \/>/<base href="\/nlrpg.github.io\/" \/>/g' release/wwwroot/index.html
 
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
